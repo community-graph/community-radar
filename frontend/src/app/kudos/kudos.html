@@ -1,0 +1,45 @@
+<vpr-header></vpr-header>
+
+
+<!-- Main -->
+<div class="container-fluid k-page">
+
+    <!-- Loader TODO: Create a loader directive -->
+    <div ng-hide="vm.loaded" class="main-loader">
+        <div class="row">
+            <div class="col-sm-12 text-center" style="padding-top: 200px;">
+                <i class="fa fa-circle-o-notch fa-spin" style="color: #ffffff; font-size: 50px;"></i>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="vm.loaded">
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-5 profile-container">
+                <div class="row">
+                    <div class="col-xs-8 text-left" style="margin-top: 10px;">
+                        <span class="title-label" style="border-left: 5px solid; border-color: #fb2046; padding: 5px">{{vm.kudos.communityMember.name}}</span>
+                    </div>
+                    <div class="col-xs-12" style="min-width: 300px !important; opacity: 1.0 !important;">
+                        <div class="card hovercard">
+                            <div class="photo-container">
+                            </div>
+                            <div class="featuredAvatar">
+                                <img ng-src="{{vm.kudos.communityMember.imageUrl}}" vpr-load="vm.onImageLoaded()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-left" style="margin-top: 8px">
+                        <span class="biography">{{vm.kudos.communityMember.bio}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row visible-xs">
+            <div class="col-xs-12" style="background-color: #d9fcf4; height: 30px; margin-top: -10px">
+            </div>
+        </div>
+    </div>
+</div>
+
+<vpr-footer></vpr-footer>
