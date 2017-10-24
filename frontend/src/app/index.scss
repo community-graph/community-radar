@@ -35,8 +35,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 html, body {
-  background: url("../assets/images/Background.jpg") no-repeat center center fixed;
-  background-color: #000000;
+  background: #000000 url("../assets/images/Background.jpg") no-repeat fixed center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -146,10 +145,24 @@ a:active {
   padding-top: 20px;
 }
 
-.form-heading {
-  padding: 10px 15px;
-  font-size: 9em;
-  font-weight: bold;
+.neoLogo {
+  height: auto;
+  width: auto;
+  //min-width:100px !important;
+  min-height: 70px !important;
+  max-height: 70px !important;
+  padding-top: 15px;
+  padding-bottom: 15px
+}
+
+.jetbrainsLogo {
+  height: auto;
+  width: auto;
+  //min-width:100px !important;
+  min-height: 100px !important;
+  max-height: 100px !important;
+  padding-top: 0px;
+  padding-bottom: -10px
 }
 
 @import "profiles.scss";
