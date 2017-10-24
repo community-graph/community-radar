@@ -14,7 +14,12 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 @EntityScan("kudos.domain.model.persistent")
 class ApplicationConfig {
 
-    fun main(args: Array<String>) = SpringApplication.run(ApplicationConfig::class.java, *args)
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            SpringApplication.run(ApplicationConfig::class.java, *args)
+        }
+    }
 
     @Bean
     fun kotlinPropertyConfigurer(): PropertySourcesPlaceholderConfigurer {
@@ -39,4 +44,5 @@ class ApplicationConfig {
     }
 
 }
+
 

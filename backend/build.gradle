@@ -44,7 +44,7 @@ repositories {
 }
 
 springBoot {
-    mainClass = "movies.spring.data.neo4j.ApplicationConfig"
+    mainClass = "kudos.ApplicationConfig"
 }
 
 dependencies {
