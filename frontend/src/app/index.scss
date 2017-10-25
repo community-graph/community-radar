@@ -30,8 +30,13 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 
 @font-face {
-  font-family: e-din-lt;
+  font-family: gotham-book;
   src: url("../assets/fonts/gotham-book.otf");
+}
+
+@font-face {
+  font-family: gotham-bold;
+  src: url("../assets/fonts/gotham-bold.ttf");
 }
 
 html, body {
@@ -42,7 +47,7 @@ html, body {
   background-size: cover;
   height: 100%;
   width: 100%;
-  font-family: e-din-lt, "DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: gotham-book, Helvetica, Arial, sans-serif;
   color: #818181;
 }
 

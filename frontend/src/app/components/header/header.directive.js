@@ -3,15 +3,15 @@
 
     angular
         .module('kudos')
-        .directive('vprHeader', vprHeader);
+        .directive('kHeader', kHeader);
 
     /** @ngInject */
-    function vprHeader() {
+    function kHeader() {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/header/header.html',
             controller: HeaderController,
-            controllerAs: 'vprHeader',
+            controllerAs: 'kHeader',
             bindToController: true
         };
 

@@ -3,15 +3,15 @@
 
     angular
         .module('kudos')
-        .directive('vprFooter', vprFooter);
+        .directive('kFooter', kFooter);
 
     /** @ngInject */
-    function vprFooter() {
+    function kFooter() {
         var directive = {
             restrict: 'E',
             templateUrl: 'app/components/footer/footer.html',
             controller: FooterController,
-            controllerAs: 'vprFooter',
+            controllerAs: 'kFooter',
             bindToController: true
         };
 

@@ -14,16 +14,13 @@
         vm.memberId = $stateParams.id;
         vm.kudos = {};
 
-        var timeout = null;
-
-
         vm.loaded = false;
 
         vm.loadCommunityMember = function () {
             vm.loaded = false;
             kudosService.loadCommunityMember(vm.memberId)
                 .then(function (kudos) {
-                    alert(JSON.stringify(kudos));
+                    // alert(JSON.stringify(kudos));
                     vm.kudos = kudos;
                     vm.loaded = true;
                 })
