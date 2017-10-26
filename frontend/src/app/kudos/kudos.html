@@ -16,14 +16,14 @@
     <div ng-show="vm.loaded">
         <div class="row">
             <div class="col-sm-2">
-                <div class="col-sm-2 col-sm-offset-5">
+                <div class="col-sm-2 col-sm-offset-7">
                     <div class="kudos-1 hidden-sm">
-                        <div class="circle_main">
-                            <div class="hashtag-label">#kudos</div>
-                            <div class="tweeter-label">@appsquickly</div>
+                        <div class="circle_main" ng-show="vm.kudos.tweets[0]">
+                            <div class="hashtag-label blue">{{vm.kudos.tweets[0].hashTags.join(' ')}}</div>
+                            <div class="tweeter-label">{{vm.kudos.tweets[0].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    {{vm.kudos.tweets[0].text}}
                                 </div>
                             </div>
                         </div>
@@ -31,14 +31,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-6">
+                <div class="col-sm-2 col-sm-offset-7">
                     <div class="kudos-2 hidden-sm">
-                        <div class="circle_main">
-                            <div class="hashtag-label">#kudos</div>
-                            <div class="tweeter-label">@appsquickly</div>
+                        <div class="circle_main" ng-show="vm.kudos.tweets[1]">
+                            <div class="hashtag-label blue">{{vm.kudos.tweets[1].hashTags.join(' ')}}</div>
+                            <div class="tweeter-label">{{vm.kudos.tweets[1].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                    {{vm.kudos.tweets[1].text}}
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                             <div class="photo-container">
                             </div>
                             <div class="featuredAvatar">
-                                <img ng-src="{{vm.kudos.communityMember.imageUrl}}" vpr-load="vm.onImageLoaded()">
+                                <img src="{{vm.kudos.communityMember.imageUrl}}" vpr-load="vm.onImageLoaded()">
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,36 @@
                 </div>
             </div>
         </div>
-        <div class="row visible-xs">
-            <div class="col-xs-12" style="background-color: red; height: 30px; margin-top: -10px">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="col-sm-2 col-sm-offset-1">
+                    <div class="kudos-2 hidden-sm">
+                        <div class="circle_main" ng-show="vm.kudos.tweets[2]">
+                            <div class="hashtag-label blue">{{vm.kudos.tweets[2].hashTags.join(' ')}}</div>
+                            <div class="tweeter-label">{{vm.kudos.tweets[2].sender}}</div>
+                            <div class="tweet-text">
+                                <div class = "circle_text">
+                                    {{vm.kudos.tweets[2].text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-6">
+                    <div class="kudos-1 hidden-sm">
+                        <div class="circle_main" ng-show="vm.kudos.tweets[3]">
+                            <div class="hashtag-label blue">{{vm.kudos.tweets[3].hashTags.join(' ')}}</div>
+                            <div class="tweeter-label">{{vm.kudos.tweets[3].sender}}</div>
+                            <div class="tweet-text">
+                                <div class = "circle_text">
+                                    {{vm.kudos.tweets[3].text}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

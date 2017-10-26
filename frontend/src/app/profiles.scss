@@ -111,6 +111,16 @@
   /*	border : 1px solid red; */
 }
 
+.kudos-2 {
+  width: 380px;
+  height: 380px;
+  padding: 0;
+  margin-top: 100px;
+  margin-left: 50px;
+  /*	border : 1px solid red; */
+}
+
+
 
 /* Circle Main draws the actual circle */
 .circle_main {
@@ -157,7 +167,6 @@
 
 
 .hashtag-label {
-  color: #5848f4;
   font-family: gotham-bold, Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -174,4 +183,12 @@
   position: relative;
   top: 20%;
   left:15%;
+}
+
+.blue {
+  color: #5848f4;
+}
+
+.crimson {
+  color: #fb2046;
 }

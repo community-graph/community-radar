@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "index.html",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "kotlin-compiler": "^1.1.51"
   },
   "scripts": {
     "test": "gulp test"

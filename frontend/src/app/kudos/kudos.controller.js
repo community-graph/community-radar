@@ -20,7 +20,6 @@
             vm.loaded = false;
             kudosService.loadCommunityMember(vm.memberId)
                 .then(function (kudos) {
-                    // alert(JSON.stringify(kudos));
                     vm.kudos = kudos;
                     vm.loaded = true;
                 })
