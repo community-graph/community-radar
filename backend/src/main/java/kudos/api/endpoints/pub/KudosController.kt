@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/kudos")
 class KudosController constructor(private val kudosService: KudosService) {
 
-    @GetMapping("/member/{memberId}")
-    fun kudos(@PathVariable memberId : String) = kudosService.getByMemberId(memberId)
+    @GetMapping("/for/{screenName}")
+    fun byScreenName(@PathVariable screenName: String) = kudosService.getByScreenName(screenName)
+
+    @GetMapping("/random")
+    fun kudos() = kudosService.getRandom()
 
 }
 

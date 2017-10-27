@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 @SpringBootApplication
-@EntityScan("kudos.domain.model.persistent")
+@EntityScan("kudos.domain.model.persistent.entities.ogm")
 class ApplicationConfig {
 
     companion object {
@@ -47,7 +47,7 @@ class ApplicationConfig {
     fun mapperConfigurer() = Jackson2ObjectMapperBuilder().apply {
         serializationInclusion(JsonInclude.Include.NON_NULL)
         failOnUnknownProperties(true)
-        featuresToDisable(*arrayOf(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS))
+        featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
         indentOutput(true)
         modules(listOf(KotlinModule()))
     }

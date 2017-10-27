@@ -51,6 +51,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+    compile group: 'org.twitter4j', name: 'twitter4j-stream', version: '4.0.6'
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter-data-neo4j') {
         exclude(module: 'neo4j-ogm-http-driver')
     }

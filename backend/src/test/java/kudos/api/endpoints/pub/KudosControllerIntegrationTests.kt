@@ -12,12 +12,22 @@ class KudosControllerIntegrationTests : ControllerTest() {
     @Value("@{api.key}") lateinit var apiKey: String
 
     @Test
-    fun shouldReturnKudosForFeaturedCommunityMember() {
+    fun shouldReturnForSpecifiedId() {
 
         RestAssured.given()
                 .header("API-Key", apiKey)
                 .header("content-type", "application/json")
-                .get("/kudos/member/1234").peek().then()
+                .get("/kudos/for/abreslav").peek().then()
+                .assertThat().statusCode(200)
+    }
+
+    @Test
+    fun shouldReturnRandom() {
+
+        RestAssured.given()
+                .header("API-Key", apiKey)
+                .header("content-type", "application/json")
+                .get("/kudos/random").peek().then()
                 .assertThat().statusCode(200)
     }
 

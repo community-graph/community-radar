@@ -1,29 +1,26 @@
-package kudos.api.endpoints
+package kudos.api.service
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.jayway.restassured.RestAssured
 import kudos.ApplicationConfig
-import org.junit.Before
+import kudos.api.service.twitter.TwitterClient
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.context.embedded.LocalServerPort
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.transaction.annotation.Transactional
+import org.junit.Assert.*
 
+@Transactional
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = arrayOf(ApplicationConfig::class), webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-abstract class ControllerTest {
+class TwitterClientTest {
 
-    @Autowired lateinit var mapper: ObjectMapper
+    @Autowired lateinit var twitterClient : TwitterClient
 
-    @LocalServerPort var port: Int? = null
-
-    @Before
-    fun setup() {
-        RestAssured.baseURI = "http://127.0.0.1"
-        RestAssured.port = port!!
+    @Test
+    fun testFetchUser() {
+        val user = twitterClient.load("abreslav")
+        assertEquals("abreslav", user.screenName)
+        println(user)
     }
-
-
 }

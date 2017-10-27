@@ -15,9 +15,9 @@ class KudosRepositoryTest {
 
     @Test
     fun getKudos() {
-        val kudos = repositoroy.getKudos("abreslav")
+        val kudos = repositoroy.getByTwitterId("hhariri")
         assertNotNull(kudos)
-        assertNotNull(kudos!!.user)
-        assertTrue(kudos.mentions.isNotEmpty())
+        assertNotNull(kudos!!.communityMember)
+        assertTrue(kudos.tweets.isNotEmpty())
     }
 }

@@ -1,13 +1,4 @@
 /**
- *  If you want to override some bootstrap variables, you have to change values here.
- *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
- */
-$navbar-inverse-link-color: white;
-$navbar-default-link-active-color: #5AADBB;
-$navbar-default-link-hover-color: #00e5b4;
-$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
-
-/**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
@@ -49,35 +40,7 @@ html, body {
   width: 100%;
   font-family: gotham-book, Helvetica, Arial, sans-serif;
   color: #818181;
-}
-
-a:link {
-  outline : none;
-  color: white;
-}
-
-a:visited {
-  outline : none;
-  color: white;
-}
-
-a:hover {
-  outline : none;
-  color: white;
-}
-
-a:focus {
-  outline : none;
-  color: white;
-}
-
-a:active {
-  outline : none;
-  color: white;
-}
-
-.jumbotron {
-  background-color: inherit;
+  font-size: 1vw;
 }
 
 .container-full-bg {
@@ -102,11 +65,10 @@ a:active {
 
 @media only screen and (max-width: 768px) {
   .k-page {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 0;
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(100% - 105px);
+    height: 100%;
     background-color: transparent;
   }
 }
@@ -114,20 +76,20 @@ a:active {
 @media only screen and (min-width: 768px) {
   .k-page {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 0;
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(100% - 60px);
+    height: 100%;
     background-color: transparent;
   }
 }
 
 .k-title {
   position:absolute;
-  width:100px;
+  width:7vw;
   height:auto;
-  top:50px;
-  left:50px;
+  top:3.2vw;
+  left:3.2vw;
 }
 
 .k-footer {
@@ -135,27 +97,19 @@ a:active {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 90px;
+  height: 10vh;
   background-color: rgba(0, 0, 0, 0.0);
   color: white;
-  font-size: 11px;
+  z-index: 100;
   //background-color: #f5f5f5;
-}
-
-.kFooter-xs {
-  height: 44px;
-}
-
-.top-buffer {
-  padding-top: 20px;
 }
 
 .neoLogo {
   height: auto;
   width: auto;
   //min-width:100px !important;
-  min-height: 70px !important;
-  max-height: 70px !important;
+  min-height: 8vh !important;
+  max-height: 8vh !important;
   padding-top: 15px;
   padding-bottom: 15px
 }
@@ -164,10 +118,10 @@ a:active {
   height: auto;
   width: auto;
   //min-width:100px !important;
-  min-height: 100px !important;
-  max-height: 100px !important;
+  min-height: 12vh !important;
+  max-height: 12vh !important;
   padding-top: 0px;
-  padding-bottom: -10px
+  padding-bottom: -1vh;
 }
 
 @import "profiles.scss";

@@ -13,7 +13,6 @@
         vm.kudosService = kudosService;
         vm.memberId = $stateParams.id;
         vm.kudos = {};
-
         vm.loaded = false;
 
         vm.loadCommunityMember = function () {
@@ -22,12 +21,19 @@
                 .then(function (kudos) {
                     vm.kudos = kudos;
                     vm.loaded = true;
+                    if (!vm.memberId) {
+                        setTimeout(function () {
+                            vm.kudos = {};
+                            vm.loadCommunityMember();
+                        }, 15000);
+                    }
+
                 })
                 .catch(function (error) {
                     $log.error("Got error: " + error);
                 });
         };
-        
+
         vm.onImageLoaded = function () {
             vm.loaded = true;
         };

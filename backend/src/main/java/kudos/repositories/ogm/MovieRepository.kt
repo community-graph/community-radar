@@ -1,6 +1,6 @@
 package kudos.repositories.ogm
 
-import kudos.domain.model.persistent.ogm.entities.Movie
+import kudos.domain.model.persistent.entities.ogm.Movie
 import org.springframework.data.neo4j.annotation.Query
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.data.repository.query.Param

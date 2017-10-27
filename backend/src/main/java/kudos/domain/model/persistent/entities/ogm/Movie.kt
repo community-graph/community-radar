@@ -1,4 +1,4 @@
-package kudos.domain.model.persistent.ogm.entities
+package kudos.domain.model.persistent.entities.ogm
 
 import org.neo4j.ogm.annotation.*
 import java.util.*

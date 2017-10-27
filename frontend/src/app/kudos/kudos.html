@@ -1,17 +1,15 @@
 <k-header></k-header>
 
+<div ng-hide="vm.loaded" class="main-loader">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <i class="fa fa-circle-o-notch fa-spin" style="color: #ffffff; font-size: 2vw"></i>
+        </div>
+    </div>
+</div>
 
 <!-- Main -->
 <div class="container-fluid k-page">
-
-    <!-- Loader TODO: Create a loader directive -->
-    <div ng-hide="vm.loaded" class="main-loader">
-        <div class="row">
-            <div class="col-sm-12 text-center" style="padding-top: 200px;">
-                <i class="fa fa-circle-o-notch fa-spin" style="color: #ffffff; font-size: 50px;"></i>
-            </div>
-        </div>
-    </div>
 
     <div ng-show="vm.loaded">
         <div class="row">
@@ -20,7 +18,7 @@
                     <div class="kudos-1 hidden-sm">
                         <div class="circle_main" ng-show="vm.kudos.tweets[0]">
                             <div class="hashtag-label blue">{{vm.kudos.tweets[0].hashTags.join(' ')}}</div>
-                            <div class="tweeter-label">{{vm.kudos.tweets[0].sender}}</div>
+                            <div class="tweeter-label">@{{vm.kudos.tweets[0].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
                                     {{vm.kudos.tweets[0].text}}
@@ -34,7 +32,7 @@
                 <div class="col-sm-2 col-sm-offset-6">
                     <div class="kudos-2 hidden-sm">
                         <div class="circle_main" ng-show="vm.kudos.tweets[1]">
-                            <div class="hashtag-label blue">{{vm.kudos.tweets[1].hashTags.join(' ')}}</div>
+                            <div class="hashtag-label crimson">@{{vm.kudos.tweets[1].hashTags.join(' ')}}</div>
                             <div class="tweeter-label">{{vm.kudos.tweets[1].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
@@ -49,10 +47,10 @@
         <div class="row">
             <div class="col-sm-2 col-sm-offset-5 community-member-container">
                 <div class="row">
-                    <div class="col-xs-8 text-left" style="margin-top: 10px;">
-                        <span class="title-label" style="border-left: 5px solid; border-color: #fb2046; padding: 5px">{{vm.kudos.communityMember.name}}</span>
+                    <div class="col-xs-12 text-left" style="margin-top: 10px;">
+                        <span class="title-label" style="border-left: 0.6vh solid; border-color: #fb2046; padding: 5px">{{vm.kudos.communityMember.name}}</span>
                     </div>
-                    <div class="col-xs-12" style="min-width: 300px !important; opacity: 1.0 !important;">
+                    <div class="col-xs-12">
                         <div class="card hovercard">
                             <div class="photo-container">
                             </div>
@@ -62,7 +60,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 text-left" style="margin-top: 8px">
-                        <span class="biography">{{vm.kudos.communityMember.bio}}</span>
+                        <span class="biography">{{vm.kudos.communityMember.description}}</span>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,7 @@
                 <div class="col-sm-2 col-sm-offset-1">
                     <div class="kudos-3 hidden-sm">
                         <div class="circle_main" ng-show="vm.kudos.tweets[2]">
-                            <div class="hashtag-label blue">{{vm.kudos.tweets[2].hashTags.join(' ')}}</div>
+                            <div class="hashtag-label crimson">@{{vm.kudos.tweets[2].hashTags.join(' ')}}</div>
                             <div class="tweeter-label">{{vm.kudos.tweets[2].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
@@ -85,10 +83,10 @@
             </div>
             <div class="row">
                 <div class="col-sm-2 col-sm-offset-5">
-                    <div class="kudos-1 hidden-sm">
+                    <div class="kudos-4 hidden-sm">
                         <div class="circle_main" ng-show="vm.kudos.tweets[3]">
                             <div class="hashtag-label blue">{{vm.kudos.tweets[3].hashTags.join(' ')}}</div>
-                            <div class="tweeter-label">{{vm.kudos.tweets[3].sender}}</div>
+                            <div class="tweeter-label">@{{vm.kudos.tweets[3].sender}}</div>
                             <div class="tweet-text">
                                 <div class = "circle_text">
                                     {{vm.kudos.tweets[3].text}}

@@ -8,19 +8,17 @@
     /** @ngInject */
     function kudosService($log, $http, serviceConfig) {
 
-        var endpointUrl = serviceConfig.baseUrl + '/kudos/member/';
         var loading = false;
-
         var service = {
-            endpointUrl: endpointUrl,
             loadCommunityMember: loadCommunityMember,
+            endpointUrl: endpointUrl,
             loading: loading
         };
 
         return service;
 
         function loadCommunityMember(memberId) {
-            var url = endpointUrl + memberId;
+            var url = service.endpointUrl(memberId);
             $log.debug("Loading community member " + url);
             service.loading = true;
 
@@ -38,7 +36,15 @@
                 $log.error('Error loading kudos:\n' + angular.toJson(error.data, true));
                 return error;
             });
+        }
 
+        function endpointUrl(memberId) {
+            if (memberId) {
+                return serviceConfig.baseUrl + '/kudos/member/' + memberId;
+            }
+            else {
+                return serviceConfig.baseUrl + '/kudos/random';
+            }
         }
     }
 })();
