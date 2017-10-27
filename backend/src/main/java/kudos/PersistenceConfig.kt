@@ -18,6 +18,6 @@ class PersistenceConfig {
     fun driver(): Driver {
         return GraphDatabase.driver(connectionParams.databaseUri,
                 AuthTokens.basic(connectionParams.userName, connectionParams.password),
-                Config.build().withEncryptionLevel(Config.EncryptionLevel.NONE).toConfig())
+                Config.build().withoutEncryption().toConfig())
     }
 }

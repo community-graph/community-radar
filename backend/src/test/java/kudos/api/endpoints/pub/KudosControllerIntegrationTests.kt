@@ -6,7 +6,7 @@ import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 
-class KudosIntegrationTests : ControllerTest() {
+class KudosControllerIntegrationTests : ControllerTest() {
 
     @Autowired
     @Value("@{api.key}") lateinit var apiKey: String
