@@ -2,7 +2,7 @@ package kudos.api.service.user.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonInclude.Include
-import kudos.domain.model.persistent.entities.User
+import kudos.domain.model.persistent.ogm.entities.User
 import kudos.api.service.EntityDTOMapper
 
 

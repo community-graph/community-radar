@@ -1,8 +1,8 @@
-package kudos.repositories
+package kudos.repositories.ogm
 
 
-import kudos.domain.model.persistent.entities.User
-import kudos.domain.model.persistent.queries.Principal
+import kudos.domain.model.persistent.ogm.entities.User
+import kudos.domain.model.persistent.ogm.queries.Principal
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.neo4j.annotation.Query
 import org.springframework.data.neo4j.repository.GraphRepository

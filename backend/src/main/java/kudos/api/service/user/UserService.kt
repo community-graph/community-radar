@@ -1,7 +1,7 @@
 package kudos.api.service.user
 
 import kudos.api.service.user.dto.UserDTO
-import kudos.repositories.UserRepository
+import kudos.repositories.ogm.UserRepository
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 import java.util.*

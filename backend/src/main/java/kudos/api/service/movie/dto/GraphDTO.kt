@@ -1,6 +1,6 @@
 package kudos.api.service.movie.dto
 
-import kudos.domain.model.persistent.entities.Movie
+import kudos.domain.model.persistent.ogm.entities.Movie
 
 data class GraphDTO(val nodes: List<NodeDTO>,
                     val links: List<LinkDTO>) {

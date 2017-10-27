@@ -2,7 +2,7 @@ package kudos
 
 import kudos.infrastructure.security.TokenAuthenticationFilter
 import kudos.infrastructure.security.TokenAuthenticationProvider
-import kudos.repositories.UserRepository
+import kudos.repositories.ogm.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.security.SecurityProperties

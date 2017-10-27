@@ -1,7 +1,7 @@
 package kudos.api.service.authorization.dto
 
 import kudos.api.service.EntityDTOMapper
-import kudos.domain.model.persistent.entities.User
+import kudos.domain.model.persistent.ogm.entities.User
 
 data class AuthorizationDTO(
         val accessToken: String,

@@ -1,6 +1,6 @@
 
 
-package kudos.domain.model.persistent.queries
+package kudos.domain.model.persistent.ogm.queries
 
 import org.springframework.data.neo4j.annotation.QueryResult
 

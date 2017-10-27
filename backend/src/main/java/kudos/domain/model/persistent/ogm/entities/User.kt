@@ -1,4 +1,4 @@
-package kudos.domain.model.persistent.entities
+package kudos.domain.model.persistent.ogm.entities
 
 import org.neo4j.ogm.annotation.GraphId
 import org.neo4j.ogm.annotation.Index

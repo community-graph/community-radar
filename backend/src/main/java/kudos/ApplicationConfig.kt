@@ -3,6 +3,10 @@ package kudos
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import org.neo4j.driver.v1.AuthTokens
+import org.neo4j.driver.v1.Config
+import org.neo4j.driver.v1.Driver
+import org.neo4j.driver.v1.GraphDatabase
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan
@@ -56,6 +60,7 @@ class ApplicationConfig {
             }
         }
     }
+
 }
 
 

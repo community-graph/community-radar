@@ -50,9 +50,11 @@ springBoot {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter-data-neo4j') {
         exclude(module: 'neo4j-ogm-http-driver')
     }
+    compile group: 'org.neo4j.driver', name: 'neo4j-java-driver', version: '1.4.4'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'org.springframework.data', name: 'spring-data-neo4j', version: '4.2.4.RELEASE'

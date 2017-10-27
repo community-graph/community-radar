@@ -1,7 +1,7 @@
 package kudos.api.service.movie.dto
 
 import kudos.api.service.EntityDTOMapper
-import kudos.domain.model.persistent.entities.Person
+import kudos.domain.model.persistent.ogm.entities.Person
 
 data class PersonDTO(val name: String,
                      val born: Long) {

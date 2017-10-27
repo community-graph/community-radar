@@ -1,4 +1,4 @@
-package kudos.domain.model.persistent.entities
+package kudos.domain.model.persistent.ogm.entities
 
 
 import java.util.ArrayList

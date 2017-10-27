@@ -2,12 +2,12 @@ package kudos.api.service.movie
 
 import kudos.api.service.movie.dto.GraphDTO
 import kudos.api.service.movie.dto.MovieDTO
-import kudos.domain.model.persistent.entities.Movie
-import kudos.domain.model.persistent.entities.Person
-import kudos.domain.model.persistent.entities.Role
+import kudos.domain.model.persistent.ogm.entities.Movie
+import kudos.domain.model.persistent.ogm.entities.Person
+import kudos.domain.model.persistent.ogm.entities.Role
 import kudos.exception.NotFoundException
-import kudos.repositories.MovieRepository
-import kudos.repositories.UserRepository
+import kudos.repositories.ogm.MovieRepository
+import kudos.repositories.ogm.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.*

@@ -1,7 +1,7 @@
 package kudos.api.service.movie.dto
 
 import kudos.api.service.EntityDTOMapper
-import kudos.domain.model.persistent.entities.Role
+import kudos.domain.model.persistent.ogm.entities.Role
 
 data class RoleDTO(val person: PersonDTO,
                    val roles: Collection<String>) {

@@ -2,7 +2,7 @@
 
 package kudos.infrastructure.security
 
-import kudos.repositories.UserRepository
+import kudos.repositories.ogm.UserRepository
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.core.Authentication

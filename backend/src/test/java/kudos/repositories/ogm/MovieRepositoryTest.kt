@@ -1,12 +1,12 @@
-package kudos.repositories
+package kudos.repositories.ogm
 
 import org.junit.Assert.*
 
-import kudos.domain.model.persistent.entities.Movie
-import kudos.domain.model.persistent.entities.Person
-import kudos.domain.model.persistent.entities.Role
-import kudos.repositories.MovieRepository
-import kudos.repositories.PersonRepository
+import kudos.domain.model.persistent.ogm.entities.Movie
+import kudos.domain.model.persistent.ogm.entities.Person
+import kudos.domain.model.persistent.ogm.entities.Role
+import kudos.repositories.ogm.MovieRepository
+import kudos.repositories.ogm.PersonRepository
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

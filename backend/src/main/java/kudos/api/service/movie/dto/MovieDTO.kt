@@ -1,7 +1,7 @@
 package kudos.api.service.movie.dto
 
 import kudos.api.service.EntityDTOMapper
-import kudos.domain.model.persistent.entities.Movie
+import kudos.domain.model.persistent.ogm.entities.Movie
 
 class MovieDTO(val title: String,
                val uuid: String? = null,

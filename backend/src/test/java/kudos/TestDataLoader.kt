@@ -1,7 +1,7 @@
 package kudos
 
-import kudos.domain.model.persistent.entities.User
-import kudos.repositories.UserRepository
+import kudos.domain.model.persistent.ogm.entities.User
+import kudos.repositories.ogm.UserRepository
 import org.neo4j.ogm.session.Session
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component

@@ -3,7 +3,7 @@ package kudos.api.service.authorization;
 import kudos.api.service.authorization.dto.AuthorizationDTO
 import kudos.api.service.authorization.dto.CredentialsDTO
 import kudos.exception.UnauthorizedException
-import kudos.repositories.UserRepository
+import kudos.repositories.ogm.UserRepository
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 

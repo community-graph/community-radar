@@ -8,7 +8,7 @@ import org.aspectj.lang.reflect.MethodSignature
 import org.springframework.core.annotation.Order
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Component
-import kudos.domain.model.persistent.queries.Principal
+import kudos.domain.model.persistent.ogm.queries.Principal
 import kudos.exception.UnauthorizedException
 
 annotation class Authenticated
