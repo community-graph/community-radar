@@ -40,7 +40,7 @@
 
         function endpointUrl(memberId) {
             if (memberId) {
-                return serviceConfig.baseUrl + '/kudos/member/' + memberId;
+                return serviceConfig.baseUrl + '/kudos/for/' + memberId;
             }
             else {
                 return serviceConfig.baseUrl + '/kudos/random';

@@ -10,19 +10,19 @@
 
         $stateProvider
             .state('showId', {
-                url: '/kudos/:id',
+                url: '/kudos/for/:id',
                 templateUrl: 'app/kudos/kudos.html',
                 controller: 'KudosController',
                 controllerAs: 'vm'
             })
             .state('random', {
-                url: '/random',
+                url: '/kudos/random',
                 templateUrl: 'app/kudos/kudos.html',
                 controller: 'KudosController',
                 controllerAs: 'vm'
             });
 
-        $urlRouterProvider.otherwise('/random');
+        $urlRouterProvider.otherwise('/kudos/random');
 
         $locationProvider.html5Mode({
             enabled: true,
