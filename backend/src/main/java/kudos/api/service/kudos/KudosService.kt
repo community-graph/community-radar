@@ -3,20 +3,20 @@ package kudos.api.service.kudos
 import kudos.api.service.twitter.TwitterClient
 import kudos.domain.model.persistent.entities.pojo.Kudos
 import kudos.domain.model.persistent.entities.pojo.User
-import kudos.repositories.bolt.KudosRepository
+import kudos.repositories.bolt.BoltKudosRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import java.net.MalformedURLException
 import java.net.URL
 
 @Service
-class KudosService(val kudosRepository: KudosRepository,
+class KudosService(val kudosRepository: BoltKudosRepository,
                    val twitterClient: TwitterClient,
                    @Value("@{kudos.defaultImageUrl}") defaultImageUrl: String,
                    @Value("@{kudos.defaultDescription}") defaultDescription: String) {
 
     private val defaultImageUrl: URL
-    private val defaultDescription : String
+    private val defaultDescription: String
 
     init {
         try {
@@ -50,23 +50,14 @@ class KudosService(val kudosRepository: KudosRepository,
      * Add missing biography details, and a default image URL.
      */
     private fun enrich(kudos: Kudos): Kudos =
-            kudos.copy(communityMember = twitterClient.load(kudos.communityMember.screenName)
-                    .withDefaultImageURL(defaultImageUrl)
-                    .withDefaultDescription(defaultDescription))
+            kudos.copy(
+                    communityMember = twitterClient.load(kudos.communityMember.screenName)
+                            .withDefaultImageURL(defaultImageUrl)
+                            .withDefaultDescription(defaultDescription),
+                    tweets = kudos.tweets.map {
+                        it.withDefaultHashTags(listOf("#kudos")).withMaxHashTags(2)
+                    })
+
 }
 
-/**
- * Add the specified image URL, if currently null.
- */
-fun User.withDefaultImageURL(url: URL) = when {
-    this.imageUrl == null -> this.copy(imageUrl = url)
-    else -> this
-}
 
-/**
- * Add the specified default description, if currently empty.
- */
-fun User.withDefaultDescription(default: String) = when {
-    this.description.isNullOrEmpty() -> this.copy(description = default)
-    else -> this
-}

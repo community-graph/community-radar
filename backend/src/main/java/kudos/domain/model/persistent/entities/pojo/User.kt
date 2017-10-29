@@ -10,3 +10,21 @@ data class User(val screenName: String,
                 val followers: Int,
                 val following: Int)
 
+{
+    /**
+     * Add the specified image URL, if currently null.
+     */
+    fun withDefaultImageURL(url: URL) = when {
+        this.imageUrl == null -> this.copy(imageUrl = url)
+        else -> this
+    }
+
+    /**
+     * Add the specified default description, if currently empty.
+     */
+    fun withDefaultDescription(default: String) = when {
+        this.description.isNullOrEmpty() -> this.copy(description = default)
+        else -> this
+    }
+
+}

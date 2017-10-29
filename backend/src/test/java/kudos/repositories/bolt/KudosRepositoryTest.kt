@@ -11,7 +11,7 @@ import org.junit.Assert.*
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class KudosRepositoryTest {
 
-    @Autowired lateinit var repositoroy : KudosRepository
+    @Autowired lateinit var repositoroy : BoltKudosRepository
 
     @Test
     fun getKudos() {
