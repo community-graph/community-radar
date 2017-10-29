@@ -6,7 +6,7 @@
         .controller('KudosController', KudosController);
 
     /** @ngInject */
-    function KudosController(kudosService, $stateParams, _, $log) {
+    function KudosController(kudosService, $stateParams, $log, kudosConfig) {
 
         var vm = this;
 
@@ -25,7 +25,7 @@
                         setTimeout(function () {
                             vm.kudos = {};
                             vm.loadCommunityMember();
-                        }, 15000);
+                        }, kudosConfig.cycleSeconds * 1000);
                     }
 
                 })
