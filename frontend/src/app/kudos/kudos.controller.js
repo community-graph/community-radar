@@ -6,7 +6,7 @@
         .controller('KudosController', KudosController);
 
     /** @ngInject */
-    function KudosController(kudosService, $stateParams, $log, kudosConfig) {
+    function KudosController(kudosService, $stateParams, _, $log, kudosConfig) {
 
         var vm = this;
 
@@ -14,18 +14,27 @@
         vm.memberId = $stateParams.id;
         vm.kudos = {};
         vm.loaded = false;
+        vm.config = kudosConfig;
 
         vm.loadCommunityMember = function () {
             vm.loaded = false;
             kudosService.loadCommunityMember(vm.memberId)
                 .then(function (kudos) {
+
                     vm.kudos = kudos;
+                    if (!vm.kudos.communityMember.imageUrl) {
+                        vm.kudos.communityMember.imageUrl = vm.config.defaultImage;
+                    }
+                    if (!vm.kudos.communityMember.description) {
+                        vm.kudos.communityMember.description = vm.config.defaultDescription;
+                    }
+
                     vm.loaded = true;
                     if (!vm.memberId) {
                         setTimeout(function () {
                             vm.kudos = {};
                             vm.loadCommunityMember();
-                        }, kudosConfig.cycleSeconds * 1000);
+                        }, 15000);
                     }
 
                 })

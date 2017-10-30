@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2 col-sm-offset-5 community-member-container">
+            <div class="col-sm-2 col-sm-offset-5 community-member-container" ng-show="vm.kudos.communityMember">
                 <div class="row">
                     <div class="col-xs-12 text-left" style="margin-top: 10px;">
                         <span class="title-label" style="border-left: 0.6vh solid; border-color: #fb2046; padding: 5px">{{vm.kudos.communityMember.name}}</span>
@@ -55,12 +55,12 @@
                             <div class="photo-container">
                             </div>
                             <div class="featuredAvatar">
-                                <img src="{{vm.kudos.communityMember.imageUrl||'https://cdn.worldvectorlogo.com/logos/kotlin.svg'}}" vpr-load="vm.onImageLoaded()">
+                                <img src="{{vm.kudos.communityMember.imageUrl}}" vpr-load="vm.onImageLoaded()">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 text-left" style="margin-top: 8px">
-                        <span class="biography">{{vm.kudos.communityMember.description || 'Kotlin community member'}}</span>
+                        <span class="biography">{{vm.kudos.communityMember.description}}</span>
                     </div>
                 </div>
             </div>
