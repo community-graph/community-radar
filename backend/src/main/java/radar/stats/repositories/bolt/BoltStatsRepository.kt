@@ -1,9 +1,8 @@
-package stats.repositories.bolt
-
-import stats.repositories.api.StatsRepository
+package radar.stats.repositories.bolt
 
 import org.neo4j.driver.v1.Driver
 import org.springframework.stereotype.Repository
+import radar.stats.repositories.api.StatsRepository
 
 @Repository
 class BoltStatsRepository(private val driver: Driver) : StatsRepository {

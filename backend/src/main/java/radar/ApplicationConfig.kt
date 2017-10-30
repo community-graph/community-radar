@@ -17,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 @SpringBootApplication
-@ComponentScan(basePackages = arrayOf("radar", "stats"))
 class ApplicationConfig {
 
     companion object {

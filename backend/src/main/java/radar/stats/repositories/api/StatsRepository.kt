@@ -1,4 +1,4 @@
-package stats.repositories.api
+package radar.stats.repositories.api
 
 interface StatsRepository {
 
