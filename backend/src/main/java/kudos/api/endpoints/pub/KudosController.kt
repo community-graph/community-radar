@@ -15,6 +15,4 @@ class KudosController constructor(private val kudosService: KudosService) {
 
     @GetMapping("/random")
     fun kudos() = kudosService.getRandom()
-
 }
-

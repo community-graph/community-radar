@@ -5,7 +5,6 @@ buildscript {
     }
     repositories {
         mavenCentral()
-        mavenCentral()
         maven { url "http://repo.spring.io/snapshot" }
         maven { url "http://repo.spring.io/milestone" }
     }
@@ -44,9 +43,6 @@ repositories {
     mavenCentral()
     maven { url "https://repo.spring.io/snapshot" }
     maven { url "http://jcenter.bintray.com" }
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
 }
 
 dependencies {

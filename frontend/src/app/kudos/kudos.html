@@ -55,12 +55,12 @@
                             <div class="photo-container">
                             </div>
                             <div class="featuredAvatar">
-                                <img src="{{vm.kudos.communityMember.imageUrl}}" vpr-load="vm.onImageLoaded()">
+                                <img src="{{vm.kudos.communityMember.imageUrl||'https://cdn.worldvectorlogo.com/logos/kotlin.svg'}}" vpr-load="vm.onImageLoaded()">
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 text-left" style="margin-top: 8px">
-                        <span class="biography">{{vm.kudos.communityMember.description}}</span>
+                        <span class="biography">{{vm.kudos.communityMember.description || 'Kotlin community member'}}</span>
                     </div>
                 </div>
             </div>

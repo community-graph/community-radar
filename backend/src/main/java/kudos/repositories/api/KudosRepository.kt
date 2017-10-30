@@ -1,4 +1,4 @@
-package kudos.repositories.bolt
+package kudos.repositories.api
 
 import kudos.domain.model.persistent.entities.pojo.Kudos
 

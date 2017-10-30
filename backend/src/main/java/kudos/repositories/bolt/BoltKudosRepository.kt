@@ -3,6 +3,7 @@ package kudos.repositories.bolt
 import kudos.domain.model.persistent.entities.pojo.Kudos
 import kudos.domain.model.persistent.entities.pojo.Tweet
 import kudos.domain.model.persistent.entities.pojo.User
+import kudos.repositories.api.KudosRepository
 import kudos.utils.hashTags
 import org.neo4j.driver.v1.Driver
 import org.neo4j.driver.v1.Value

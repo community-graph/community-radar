@@ -22,7 +22,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests()
-                .antMatchers("/authorization/**", "/public/**", "/kudos/**").permitAll()
+                .antMatchers("/authorization/**", "/public/**", "/kudos/**","/stats/**").permitAll()
                 .antMatchers("/**").authenticated()
     }
 
