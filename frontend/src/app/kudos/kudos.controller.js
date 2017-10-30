@@ -29,6 +29,8 @@
                         vm.kudos.communityMember.description = vm.config.defaultDescription;
                     }
 
+                    vm.cleanHashTagsInTweets();
+
                     vm.loaded = true;
                     if (!vm.memberId) {
                         setTimeout(function () {
@@ -41,6 +43,25 @@
                 .catch(function (error) {
                     $log.error("Got error: " + error);
                 });
+        };
+
+        vm.cleanHashTagsInTweets = function () {
+            vm.cleanHashTags(vm.kudos.tweets[0]);
+            vm.cleanHashTags(vm.kudos.tweets[1]);
+            vm.cleanHashTags(vm.kudos.tweets[2]);
+            vm.cleanHashTags(vm.kudos.tweets[3]);
+        };
+
+        vm.cleanHashTags = function (tweet) {
+            if (!tweet) {
+                return;
+            }
+
+            if (tweet.hashTags.length === 0) {
+                tweet.hashTags.push(vm.config.defaultHashTag);
+            } else if (tweet.hashTags.length >= 2) {
+                tweet.hashTags.length = 2;
+            }
         };
 
         vm.onImageLoaded = function () {

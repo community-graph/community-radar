@@ -7,6 +7,7 @@
         .constant('kudosConfig', {
             defaultDescription: 'Kotlin community member',
             defaultImage: 'https://cdn.worldvectorlogo.com/logos/kotlin.svg',
+            defaultHashTag: '#kotlin',
             cycleSeconds: 15
         });
 })();
