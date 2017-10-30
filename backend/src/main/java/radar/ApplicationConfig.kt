@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 import org.springframework.web.servlet.config.annotation.CorsRegistry
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 @SpringBootApplication
-@EntityScan("kudos.domain.model.persistent.entities.ogm")
+@ComponentScan(basePackages = arrayOf("radar", "stats"))
 class ApplicationConfig {
 
     companion object {

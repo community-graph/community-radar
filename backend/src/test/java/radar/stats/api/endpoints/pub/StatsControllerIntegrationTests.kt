@@ -4,14 +4,9 @@ import com.jayway.restassured.RestAssured
 import org.hamcrest.CoreMatchers
 import org.junit.Ignore
 import org.junit.Test
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.beans.factory.annotation.Value
 import radar.ControllerTest
 
 class StatsControllerIntegrationTests : ControllerTest() {
-
-    @Autowired
-    @Value("@{api.key}") lateinit var apiKey: String
 
     @Test
     fun shouldReturn200() {
