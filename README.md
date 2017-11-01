@@ -1,4 +1,8 @@
-# community-radar
+# Community-Graph Information Radar
+
+You can see it running here: http://kotlin-kudos.herokuapp.com
+The backend runs on: http://kotlin-kudos-backend.herokuapp.com
+
 A simple display of community activity from the community graph implemented in Kotlin
 
 ## Getting set up
@@ -34,3 +38,27 @@ You'll need node.js, version 7 or above. A nice way to install that is with <a h
 * Browse at <a href="http://localhost:3000/kudos/random">http://localhost:3000/kudos/random</a>
 
 
+## KotlinConf Competition
+
+If you want to win a cool t-shirt at the [Neo4j](http://neo4j.com/developer) Booth during KotlinConf do the following
+
+1. Fork this repository
+2. Improve it, just a small bit (code, frameworks, UI, add a new community-graph statistics query)
+3. Run it locally
+4. Send a Pull Request
+5. **Come by, show us & get your prize**
+
+## Kotlin Community Graph
+
+A Neo4j database capturing all the public activity of the Kotlin Community on
+
+* Twitter
+* StackOverflow
+* GitHub
+* Meetup
+
+Database-URL: http://ec2-52-90-58-108.compute-1.amazonaws.com
+User: neo4j
+Password: kotlin
+
+You can run Neo4j Cypher Queries on it, like we do in [StatsRepository](https://github.com/community-graph/community-radar/blob/master/backend/src/main/java/radar/stats/repositories/bolt/BoltStatsRepository.kt) and render the results as charts, lists or networks.
