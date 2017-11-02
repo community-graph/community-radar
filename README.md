@@ -8,6 +8,8 @@ The frontend: http://kotlin-kudos.herokuapp.com
 
 The backend: http://kotlin-kudos-backend.herokuapp.com
 
+The dashboard: http://kotlin-dashboard.herokuapp.com
+
 ## Getting set up
 
 Data from Neo4j is enriched in real-time using Twitter APIs, which require access credentials.
@@ -46,6 +48,7 @@ The beginnings of a statistics dashboard as a React application can be found in 
 
 Currently it only lists tweets per month from the backend (`StatsRepository`).
 
+It is running on: http://kotlin-dashboard.herokuapp.com
 
 ## KotlinConf Competition
 
