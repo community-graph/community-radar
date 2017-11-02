@@ -17,59 +17,50 @@ class BoltKudosRepository(private val driver: Driver) : KudosRepository {
 
     override fun getByTwitterId(twitterId: String): Kudos? {
         val query = """
-            match (sender:User)-[:POSTED]->(tweet:Tweet:Content)-[:MENTIONED]-(member:User {screen_name:{screen_name}})
-            return sender, tweet, member;
-            """
+match (kudos:Tag {name:"kudos"})
+match (sender:User)-[:POSTED]->(tweet:Tweet:Content)-[:MENTIONED]-(member:User {screen_name:{screen_name}})
+where not tweet:Retweet and tweet.created > timestamp()/1000 - 14*24*3600
+with * order by (case when (tweet)-[:TAGGED]->(kudos) then 2 else 1 end) * (tweet.favorites + size((tweet)<-[:RETWEETED]-())) desc limit 10
+return sender, tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER BY rand() LIMIT 4;
+"""
 
+        val params = mapOf("screen_name" to twitterId)
+
+        return retrieveKudos(query, params)
+    }
+
+    private fun retrieveKudos(query: String, params: Map<String, String>): Kudos? {
         var user: User? = null
-        var sender: String? = null
         val tweets = ArrayList<Tweet>()
 
         driver.session().use { session ->
             val tx = session.beginTransaction()
-            val result = tx.run(query, mapOf(
-                    "screen_name" to twitterId
-            ))
+            val result = tx.run(query, params)
 
             while (result.hasNext()) {
                 val record = result.next()
                 if (user == null) {
                     user = user(record.get("member"))
                 }
-                if (sender == null) {
-                    sender = record.get("sender").get("screen_name").asString()
-                }
-                tweets.add(tweet(record.get("tweet"), sender!!))
+                val sender = record . get("sender").get("screen_name").asString()
+                tweets.add(tweet(record.get("tweet"), sender, record.get("tags").asList() as List<String>))
             }
             tx.success()
         }
-        return Kudos(user!!, tweets)
+        return user?.let { Kudos(user!!, tweets) }
     }
 
     override fun getRandom(): Kudos? {
         val query = """
-            match (s:User)-[:POSTED]->(c:Tweet:Content)-[r:MENTIONED]-(u:User) where exists(u.profile_image_url)
-            WITH u.screen_name as screen_name, count(r) as mentionCount where mentionCount >= 4
-            return screen_name limit 1000;
-            """
+match (kudos:Tag {name:"kudos"})<-[:TAGGED]-(:Tweet)-[:MENTIONED]-(member:User)
+with distinct kudos, member order by rand() limit 1
+match (sender:User)-[:POSTED]->(tweet:Tweet:Content)-[:MENTIONED]-(member:User)
+where not tweet:Retweet and tweet.created > timestamp()/1000 - 14*24*3600
+with * order by (case when (tweet)-[:TAGGED]->(kudos) then 2 else 1 end) * (tweet.favorites + size((tweet)<-[:RETWEETED]-())) desc limit 10
+return sender, tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER BY rand() LIMIT 4;
+"""
 
-        val screenNames = ArrayList<String>()
-
-        driver.session().use { session ->
-            val tx = session.beginTransaction()
-            val result = tx.run(query, emptyMap())
-
-            while (result.hasNext()) {
-                val record = result.next()
-                screenNames.add(record.get("screen_name").asString())
-            }
-            tx.success()
-        }
-
-        return when (screenNames.size) {
-            0 -> null
-            else -> getByTwitterId(screenNames[(Math.random() * screenNames.size).toInt()])
-        }
+        return retrieveKudos(query, emptyMap())
     }
 
     private fun user(u: Value) = User(
@@ -81,12 +72,12 @@ class BoltKudosRepository(private val driver: Driver) : KudosRepository {
             followers = u.get("followers").asInt(),
             following = u.get("following").asInt())
 
-    private fun tweet(c: Value, sender: String) = Tweet(
+    private fun tweet(c: Value, sender: String, tags:List<String>) = Tweet(
             sender = sender,
             text = c.get("text").asString(),
             created = Date(c.get("created").asLong()),
             favorites = c.get("favorites").asInt(),
-            hashTags = c.get("text").asString().hashTags())
+            hashTags = tags)
 
     private fun url(u: Value): URL? {
         return when {
