@@ -22,6 +22,9 @@
                 .then(function (kudos) {
 
                     vm.kudos = kudos;
+                    if (!vm.kudos.communityMember) {
+                        vm.kudos.communityMember={}
+                    }
                     if (!vm.kudos.communityMember.imageUrl) {
                         vm.kudos.communityMember.imageUrl = vm.config.defaultImage;
                     }
@@ -46,14 +49,13 @@
         };
 
         vm.cleanHashTagsInTweets = function () {
-            vm.cleanHashTags(vm.kudos.tweets[0]);
-            vm.cleanHashTags(vm.kudos.tweets[1]);
-            vm.cleanHashTags(vm.kudos.tweets[2]);
-            vm.cleanHashTags(vm.kudos.tweets[3]);
+            if (vm.kudos.tweets) {
+                vm.kudos.tweets.forEach( function(tweet) {vm.cleanHashTags(tweet)});
+            } 
         };
 
         vm.cleanHashTags = function (tweet) {
-            if (!tweet) {
+            if (!tweet || !tweet.hashTags) {
                 return;
             }
 

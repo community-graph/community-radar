@@ -40,6 +40,13 @@ You'll need node.js, version 7 or above. A nice way to install that is with <a h
 
 ![Kotlin Kudos Frontend](./frontend/kotlin-kudos-ui.jpg)
 
+## Statistics Dashboard
+
+The beginnings of a statistics dashboard as a React application can be found in `dashboard`.
+
+Currently it only lists tweets per month from the backend (`StatsRepository`).
+
+
 ## KotlinConf Competition
 
 ### Tweet #Kudos to your #Kotlin Heros
