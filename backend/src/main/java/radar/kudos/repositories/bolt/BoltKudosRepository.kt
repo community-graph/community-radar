@@ -52,12 +52,19 @@ return sender, tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER
 
     override fun getRandom(): Kudos? {
         val query = """
-match (kudos:Tag {name:"kudos"})<-[:TAGGED]-(:Tweet)-[:MENTIONED]-(member:User)
-with distinct kudos, member order by rand() limit 1
+match (kudos:Tag {name:"kudos"})
 match (sender:User)-[:POSTED]->(tweet:Tweet:Content)-[:MENTIONED]-(member:User)
-where not tweet:Retweet and tweet.created > timestamp()/1000 - 14*24*3600
-with * order by (case when (tweet)-[:TAGGED]->(kudos) then 2 else 1 end) * (tweet.favorites + size((tweet)<-[:RETWEETED]-())) desc limit 10
-return sender, tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER BY rand() LIMIT 4;
+where not tweet:Retweet and tweet.created > timestamp()/1000 - 28*24*3600
+with member, sender,tweet, (case when (tweet)-[:TAGGED]->(kudos) then 2 else 1 end) * (tweet.favorites + size((tweet)<-[:RETWEETED]-())) as score
+order by score desc
+with member, collect({sender:sender,tweet:tweet})[0..10] as messages, sum(score) as totalScore
+where size(messages) >= 4
+WITH *
+order by totalScore desc limit 100
+WITH member, messages ORDER BY rand() LIMIT 1
+UNWIND messages as message
+WITH message.sender as sender, message.tweet as tweet, member
+return sender,tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER BY rand() LIMIT 4;
 """
 
         return retrieveKudos(query, emptyMap())
