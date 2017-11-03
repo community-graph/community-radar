@@ -88,7 +88,7 @@ return sender,tweet, member, [(tweet)-[:TAGGED]-(tag) | tag.name] as tags ORDER 
 
     private fun url(u: Value): URL? {
         return when {
-            u.isEmpty -> null
+            u.isNull -> null
             else -> URL(u.asString())
         }
     }
